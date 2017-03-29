@@ -1,2 +1,3 @@
 .idea/
 vlabs/__pycache__/
+vlabs/migrations/__pycache__/
