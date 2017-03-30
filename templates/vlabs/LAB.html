@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>ProblemSolving</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+</head>
+<body>
+<div class="container">
+    <div class="page-header">
+  <div class="jumbotron">
+      <a href="/"  style="text-align: center"><p>Virtual Labs</p></a>
+      <h6 style="text-align: center">Computer science and engineering</h6>
+      <h2 style="text-align: center">Algorithm and problem Solving</h2>
+</div>
+        <a href="/list_of_labs">Go to All LABs</a>
+        <h1 style="text-align: center">{{ labNo }}</h1>
+    </div>
+        <div>
+            <div class="row">
+        <div class="col-sm-6 col-lg-6 col-md-6 imgcntr container" style="width: 21%">
+        <h4><a href="/list_of_labs/LAB1">Introduction</a></br></h4>
+            <h4><a href={% url 'task' labNo %}>Task</a></br></h4>
+            <h4><a href="{% url 'objective' labNo %}">Objective</a></br></h4>
+{#            <h4><a href="/topic">Topic</a></br></h4>#}
+{#            <h4><a href="/feedback">Feedback</a></br></h4>#}
+        </div>
+                <div class="col-sm-6 col-lg-6 col-md-6 imgcntr" style="width: 79%">
+                    {% if action == "Introduction" %}
+                    <h2>Introduction</h2>
+                        <p>{{ lab.Introduction }}</p>
+                    {% elif action == "task" %}
+                    <h2>Task</h2>
+                        <p>{{ lab.task }}</p>
+                    {% else %}
+                    <h2>Objective</h2>
+                        <p>{{ lab.objective }}</p>
+                    {% endif %}
+                <a href="/problemSolving" style="float: right">Go to course</a>
+        <br>
+        <a href="/stream" style="float: right">Go to stream</a>
+                </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
