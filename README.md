@@ -5,4 +5,4 @@
 + It course contains only three labs(AS LAB1, LAB2, LAB3).
 + All labs contains three section[Introduction, Task, Objective]
 
-# Live Url [http://vermanil.pythonanywhere.com/]
+# Live Url [http://vlabs.pythonanywhere.com/]
