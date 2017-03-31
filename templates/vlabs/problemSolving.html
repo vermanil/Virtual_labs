@@ -13,6 +13,7 @@
 <div class="container">
     <div class="page-header">
   <div class="jumbotron">
+      <a href="/"  style="text-align: center"><p>Virtual Labs</p></a>
       <h6 style="text-align: center">Computer science and engineering</h6>
       <h2 style="text-align: center">Algorithm and problem Solving</h2>
 </div>
@@ -20,21 +21,58 @@
         <div>
             <div class="row">
         <div class="col-sm-6 col-lg-6 col-md-6 imgcntr container" style="width: 21%">
-        <h4><a>Introduction</a></br></h4>
-            <h4><a>List of Experiments</a></br></h4>
-            <h4><a>Target Audience</a></br></h4>
-            <h4><a>Topic</a></br></h4>
-            <h4><a>Feedback</a></br></h4>
+        <h4><a href="/problemSolving">Introduction</a></br></h4>
+            <h4><a href="/list_of_labs">List of Labs</a></br></h4>
+            <h4><a href="/targetaudience">Target Audience</a></br></h4>
+            <h4><a href="/topic">Topic</a></br></h4>
+            <h4><a href="/feedback">Feedback</a></br></h4>
 
 
         </div>
+                <div class="col-sm-6 col-lg-6 col-md-6 imgcntr" style="width: 79%">
+                        {% if action == "Intro" %}
+                            {% for st in struct %}
 
-        <div class="col-sm-6 col-lg-6 col-md-6 imgcntr" style="width: 79%">
-            <div>
-                <h1>Anil Verma </h1>
-                <h3>Web Developer</h3><br></div>
-        </div>
+                            <h2>Introduction</h2>
+                            <div>
+                                <p>{{ st.introduction }}</p>
+                        </div>
+
+                            {% endfor %}
+                            {% elif action == "Audience" %}
+                                <h2>Target Audience</h2>
+                            {% for st in struct %}
+                                        <div>
+                                            <p>{{ st.target_audience }}</p>
+                                    </div>
+                                     {% endfor %}
+                            {% elif action == "Topic" %}
+                                <h2>Topic</h2>
+                            {% for st in struct %}
+                                        <div>
+                                            <p>{{ st.topic }}</p>
+                                    </div>
+                                     {% endfor %}
+                            {% elif action == "Feedback" %}
+                                 {% block content %}
+                                        {% endblock %}
+                        {% else %}
+                                <h2 style="text-align: center">Total Labs For this course</h2>
+{#                            {% i = 0 %}#}
+                            {% for st in struct %}
+{#                                {% i++ %}#}
+                                        <div>
+{#                                        print({% st.list_of_lab %})#}
+                                            <a href={% url 'lab' st.list_of_labs %}><p style="text-align: center">{{ st.list_of_labs }}</p></a>
+                                    </div>
+                                     {% endfor %}
+                        {% endif %}<a href="/problemSolving" style="float: right">Go to course</a>
+        <br>
+        <a href="/stream" style="float: right">Go to stream</a>
+                </div>
     </div>
     </div>
+        <div>
+
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>ProblemSolving</title>
@@ -34,8 +34,21 @@
                     <h2>Introduction</h2>
                         <p>{{ lab.Introduction }}</p>
                     {% elif action == "task" %}
-                    <h2>Task</h2>
-                        <p>{{ lab.task }}</p>
+                           <h2>Task</h2></br>
+                        {% for l in lab %}
+                            <h3>Question</h3>
+                        <h4>{{ l.Question }}</h4></br>
+                            <h3>Answer</h3>
+                            <p>{{ l.answer }}</p></br>
+                            {% if l.input != "Nothing" %}
+                                <h4>Input</h4>
+                                <p>{{ l.input }}</p>
+                            {% endif %} </br>
+                            {% if l.output != "Nothing" %}
+                                <h4>Output</h4>
+                                <p>{{ l.output }}</p>
+                            {% endif %}
+                        {% endfor %}
                     {% else %}
                     <h2>Objective</h2>
                         <p>{{ lab.objective }}</p>
